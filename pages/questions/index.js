@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { Spinner } from "@chakra-ui/react";
 
 const getQuestions = async () => {
-  const res = await axios.get("http://quize.arcatech.dev/api/getQuestions", {
+  const res = await axios.get("https://quize.arcatech.dev/api/getQuestions", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },

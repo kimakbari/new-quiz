@@ -27,7 +27,7 @@ import {
   
     const SignIn = () => {
       axios
-        .post("http://quize.arcatech.dev/api/login", { username, password })
+        .post("https://quize.arcatech.dev/api/login", { username, password })
         .then((response) => {
           router.replace("/questions")
           console.log(response.data.access_token)

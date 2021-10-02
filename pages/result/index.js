@@ -12,7 +12,7 @@ import {
   const getResults =async ()=>{
     const result = 
       await axios.get(
-        "http://quize.arcatech.dev/api/user_correct_percentage_answer",
+        "https://quize.arcatech.dev/api/user_correct_percentage_answer",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

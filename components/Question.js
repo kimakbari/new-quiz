@@ -2,7 +2,7 @@ import { Flex, Text, Radio, Button, RadioGroup } from "@chakra-ui/react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import {useQuery} from 'react-query'
+import { useQuery } from "react-query";
 import Link from "next/link";
 import axios from "axios";
 
@@ -15,46 +15,55 @@ import axios from "axios";
 //           Authorization: `Bearer ${localStorage.getItem("token")}`,
 //         },
 //       }
-//     )
-//     return data
-//   })
+//     );
+//     return data;
+//   });
 
 function Question({ data }) {
   const [counter, setCounter] = useState(0);
   const [answer, setAnswer] = useState();
   const [answers, setAnswers] = useState([answer]);
   const router = useRouter();
-  // const { data: res } = GetCurrentAnswer(data[counter].id)
-  // console.log(res)
+  // const { data: res } = GetCurrentAnswer(data[counter].id);
+  // console.log(res);
 
   const NextQuestion = () => {
-     axios
-        .post(
-          `http://quize.arcatech.dev/api/submit_answer/${data[counter]?.id}`,
-          { answer },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          setAnswers([...answers, { id: data[counter]?.id, selectedAnswer: answer }])
-          const hasIndex = answers.findIndex((ans) => ans?.id === counter + 1)
-        console.log(hasIndex)
-        hasIndex !== -1 ? setAnswer(answers[hasIndex+1]?.selectedAnswer) : null
-        console.log(answers)
-          setCounter(counter + 1);
-        })
-        .catch((error) => console.log(error))
+    axios
+      .post(
+        `https://quize.arcatech.dev/api/submit_answer/${data[counter]?.id}`,
+        { answer },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        setAnswers([
+          ...answers,
+          { id: data[counter]?.id, selectedAnswer: answer },
+        ]);
+        // setAnswer([
+        //   ...answer,
+        //   {answered:true}
+        // ])
+        const hasIndex = answers.findIndex((ans) => ans?.id === counter + 1);
+        console.log(hasIndex);
+        hasIndex !== -1
+          ? setAnswer(answers[hasIndex + 1]?.selectedAnswer)
+          : null;
+        console.log(answers);
+        setCounter(counter + 1);
+      })
+      .catch((error) => console.log(error));
     setAnswer(0);
   };
 
   const finishExam = () => {
     axios
       .post(
-        `http://quize.arcatech.dev/api/submit_answer/${data[counter]?.id}`,
+        `https://quize.arcatech.dev/api/submit_answer/${data[counter]?.id}`,
         { answer },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -62,7 +71,10 @@ function Question({ data }) {
       )
       .then((res) => {
         console.log(res);
-        setAnswers([...answers, { id: data[counter]?.id, selectedAnswer: answer }])
+        setAnswers([
+          ...answers,
+          { id: data[counter]?.id, selectedAnswer: answer },
+        ]);
       })
       .catch((error) => console.log(error))
       .finally(() => {
@@ -73,8 +85,7 @@ function Question({ data }) {
 
   const Back = () => {
     setCounter(counter - 1);
-    setAnswer(answers[counter]?.selectedAnswer)
-    
+    setAnswer(answers[counter]?.selectedAnswer);
   };
   return (
     <Flex
@@ -112,6 +123,19 @@ function Question({ data }) {
               /9
             </Text>
           </Flex>
+        </Flex>
+        <Flex w="100%" h="10%" justifyContent="space-between">
+           {data[counter]?.id===1? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===2? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===3? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===4? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===5? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===6? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===7? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===8? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {data[counter]?.id===1? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           
+           
         </Flex>
         <Flex p="1em" fontSize="1.2em">
           <Text>{data[counter]?.question_title}</Text>
