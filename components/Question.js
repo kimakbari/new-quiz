@@ -125,7 +125,7 @@ function Question({ data }) {
           </Flex>
         </Flex>
         <Flex w="100%" h="10%" justifyContent="space-between">
-           {data[counter]?.id===1? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
+           {/* {data[counter]?.id===1? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
            {data[counter]?.id===2? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
            {data[counter]?.id===3? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
            {data[counter]?.id===4? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
@@ -134,7 +134,7 @@ function Question({ data }) {
            {data[counter]?.id===7? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
            {data[counter]?.id===8? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
            {data[counter]?.id===1? <Flex bgColor="red" w="15px" h="2px" />: answer ?<Flex bgColor="green" w="15px" h="2px"/>:<Flex bgColor="gray"w="15px" h="2px"/> }
-           
+            */}
            
         </Flex>
         <Flex p="1em" fontSize="1.2em">
